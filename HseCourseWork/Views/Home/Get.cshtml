@@ -1,0 +1,35 @@
+@using Microsoft.AspNetCore.Html
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="text-center" style="padding-bottom: 30px">
+    <h1 class="display-6" style="font-weight: bold">Welcome to database controller</h1>
+    <h5 style="padding-top: 10px">With this web application you can view the properties</h5>
+    <h5>of chemical elements distributed in different databases</h5>
+    <p style="color: gray">This application is connected to the BandGap and Crystal databases</p>
+</div>
+<div align="center">
+    @using (Html.BeginForm("ShowData", "Database"))
+    {
+        <p style="color: gray; font-size: 20px">Select a substance from the dropdown list to view its properties</p>
+        <table>
+            <tr>
+                <th style="padding: 10px"><b>SELECT SUBSTANCE:</b></th>
+                <th style="padding: 10px">
+                    <select id="compound" name="compound" style="width: 250px; height: 30px;border-color: green">
+                        @for (int i = 0; i < ((IEnumerable<SelectListItem>)ViewBag.Compounds).Count(); i++)
+                        {
+                            HtmlString html = new HtmlString(((List<SelectListItem>)ViewBag.Compounds)[i].Value.ToString());
+                            <option value=@(((List<SelectListItem>)ViewBag.Compounds)[i].Value.ToString()) class="compound">@html</option>
+                        }
+                    </select>
+                </th>
+                <th style="padding: 10px">
+                    <input type="submit" id="submitId" value="SUBMIT"
+                           style="border-radius: 10px; background-color: greenyellow; 
+                           width: 100px; height: 30px; font-weight: bold; border-color: black"/>
+                </th>
+            </tr>
+        </table>
+    }
+</div>
