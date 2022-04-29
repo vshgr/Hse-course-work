@@ -5,7 +5,10 @@
     <projectFile profileName="IIS Express">WebApplication1/WebApplication1.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02dff193-3fc7-4c14-bcea-db2171d8b735" name="Changes" comment="" />
+    <list default="true" id="02dff193-3fc7-4c14-bcea-db2171d8b735" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HseCourseWork/Controllers/DatabaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HseCourseWork/Controllers/DatabaseController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +29,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="28OdHqiuAaGfJ77mRxqcFhd5RTA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -80,13 +84,14 @@
       <updated>1651091480699</updated>
       <workItem from="1651091491669" duration="33687000" />
       <workItem from="1651170132655" duration="1072000" />
-      <workItem from="1651228867585" duration="49000" />
+      <workItem from="1651228867585" duration="1498000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
