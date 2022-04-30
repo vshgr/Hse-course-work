@@ -1,0 +1,171 @@
+@{
+    ViewData["Title"] = "Table page";
+}
+
+
+<div class="text-center" style="padding-bottom: 30px">
+    <h1 class="display-6" style="font-weight: bold">Welcome to database controller</h1>
+    <h5 style="padding-top: 10px">With this web application you can view the properties<br/>
+        of chemical elements distributed in different databases</h5>
+    <p style="color: gray">This application is connected to the BandGap and Crystal databases<br/>
+        Select elements from periodic table to get a list of substances <br/>
+        that include these elements and and see their properties</p>
+</div>
+
+<div>
+    @using(Html.BeginForm("Show","Database")) {
+        <table class="table table-bordered" style="background-color: lightgrey;
+border-color: white; border-width: 3px; text-align: center; font-weight: bold; font-family: Georgia">
+            <tr>
+                <td style="background-color: lightcoral">1<br/>H<br/><input type="checkbox" name="elem" value="H"/></td>
+                <td colspan="16" style="background-color: white"></td>
+                <td style="background-color: lightcoral">2<br/>He<br/><input type="checkbox" name="elem" value="He"/></td>
+            </tr>
+            <tr>
+                <td style="background-color: lightcoral">3<br/>Li<br/><input type="checkbox" name="elem" value="Li"/></td>
+                <td style="background-color: lightcoral">4<br/>Be<br/><input type="checkbox" name="elem" value="Be"/></td>
+                <td colspan="10" style="background-color: white"></td>
+                <td style="background-color: #ffec5c">5<br/>B<br/><input type="checkbox" name="elem" value="B"/></td>
+                <td style="background-color: #ffec5c">6<br/>C<br/><input type="checkbox" name="elem" value="C"/></td>
+                <td style="background-color: #ffec5c">7<br/>N<br/><input type="checkbox" name="elem" value="N"/></td>
+                <td style="background-color: #ffec5c">8<br/>O<br/><input type="checkbox" name="elem" value="O"/></td>
+                <td style="background-color: #ffec5c">9<br/>F<br/><input type="checkbox" name="elem" value="F"/></td>
+                <td style="background-color: #ffec5c">10<br/>Ne<br/><input type="checkbox" name="elem" value="Ne"/></td>
+            </tr>
+            <tr>
+                <td style="background-color: lightcoral">11<br/>Na<br/><input type="checkbox" name="elem" value="Na"/></td>
+                <td style="background-color: lightcoral">12<br/>Mg<br/><input type="checkbox" name="elem" value="Mg"/></td>
+                <td colspan="10" style="background-color: white"></td>
+                <td style="background-color: #ffec5c">13<br/>Al<br/><input type="checkbox" name="elem" value="Al"/></td>
+                <td style="background-color: #ffec5c">14<br/>Si<br/><input type="checkbox" name="elem" value="Si"/></td>
+                <td style="background-color: #ffec5c">15<br/>P<br/><input type="checkbox" name="elem" value="P"/></td>
+                <td style="background-color: #ffec5c">16<br/>S<br/><input type="checkbox" name="elem" value="S"/></td>
+                <td style="background-color: #ffec5c">17<br/>Cl<br/><input type="checkbox" name="elem" value="Cl"/></td>
+                <td style="background-color: #ffec5c">18<br/>Ar<br/><input type="checkbox" name="elem" value="Ar"/></td>
+            </tr>
+            <tr>
+                <td style="background-color: lightcoral">19<br/>K<br/><input type="checkbox" name="elem" value="K"/></td>
+                <td style="background-color: lightcoral">20<br/>Ca<br/><input type="checkbox" name="elem" value="Ca"/></td>
+                <td style="background-color: lightskyblue">21<br/>Sc<br/><input type="checkbox" name="elem" value="Sc"/></td>
+                <td style="background-color: lightskyblue">22<br/>Ti<br/><input type="checkbox" name="elem" value="Ti"/></td>
+                <td style="background-color: lightskyblue">23<br/>V<br/><input type="checkbox" name="elem" value="V"/></td>
+                <td style="background-color: lightskyblue">24<br/>Cr<br/><input type="checkbox" name="elem" value="Cr"/></td>
+                <td style="background-color: lightskyblue">25<br/>Mn<br/><input type="checkbox" name="elem" value="Mn"/></td>
+                <td style="background-color: lightskyblue">26<br/>Fe<br/><input type="checkbox" name="elem" value="Fe"/></td>
+                <td style="background-color: lightskyblue">27<br/>Co<br/><input type="checkbox" name="elem" value="Co"/></td>
+                <td style="background-color: lightskyblue">28<br/>Ni<br/><input type="checkbox" name="elem" value="Mi"/></td>
+                <td style="background-color: lightskyblue">29<br/>Cu<br/><input type="checkbox" name="elem" value="Cu"/></td>
+                <td style="background-color: lightskyblue">30<br/>Zn<br/><input type="checkbox" name="elem" value="Zn"/></td>
+                <td style="background-color: #ffec5c">31<br/>Ga<br/><input type="checkbox" name="elem" value="Ga"/></td>
+                <td style="background-color: #ffec5c">32<br/>Ge<br/><input type="checkbox" name="elem" value="Ge"/></td>
+                <td style="background-color: #ffec5c">33<br/>As<br/><input type="checkbox" name="elem" value="As"/></td>
+                <td style="background-color: #ffec5c">34<br/>Se<br/><input type="checkbox" name="elem" value="Se"/></td>
+                <td style="background-color: #ffec5c">35<br/>Br<br/><input type="checkbox" name="elem" value="Br"/></td>
+                <td style="background-color: #ffec5c">36<br/>Kr<br/><input type="checkbox" name="elem" value="Kr"/></td>
+            </tr>
+            <tr>
+                <td style="background-color: lightcoral">37<br/>Rb<br/><input type="checkbox" name="elem" value="Rb"/></td>
+                <td style="background-color: lightcoral">38<br/>Sr<br/><input type="checkbox" name="elem" value="Sr"/></td>
+                <td style="background-color: lightskyblue">39<br/>Y<br/><input type="checkbox" name="elem" value="Y"/></td>
+                <td style="background-color: lightskyblue">40<br/>Zr<br/><input type="checkbox" name="elem" value="Zr"/></td>
+                <td style="background-color: lightskyblue">41<br/>Nb<br/><input type="checkbox" name="elem" value="Nb"/></td>
+                <td style="background-color: lightskyblue">42<br/>Mo<br/><input type="checkbox" name="elem" value="Mo"/></td>
+                <td style="background-color: lightskyblue">43<br/>Tc<br/><input type="checkbox" name="elem" value="Tc"/></td>
+                <td style="background-color: lightskyblue">44<br/>Ru<br/><input type="checkbox" name="elem" value="Ru"/></td>
+                <td style="background-color: lightskyblue">45<br/>Rh<br/><input type="checkbox" name="elem" value="Rh"/></td>
+                <td style="background-color: lightskyblue">46<br/>Pd<br/><input type="checkbox" name="elem" value="Pd"/></td>
+                <td style="background-color: lightskyblue">47<br/>Ag<br/><input type="checkbox" name="elem" value="Ag"/></td>
+                <td style="background-color: lightskyblue">48<br/>Cd<br/><input type="checkbox" name="elem" value="Cd"/></td>
+                <td style="background-color: #ffec5c">49<br/>In<br/><input type="checkbox" name="elem" value="In"/></td>
+                <td style="background-color: #ffec5c">50<br/>Sn<br/><input type="checkbox" name="elem" value="Sn"/></td>
+                <td style="background-color: #ffec5c">51<br/>Sb<br/><input type="checkbox" name="elem" value="Sb"/></td>
+                <td style="background-color: #ffec5c">52<br/>Te<br/><input type="checkbox" name="elem" value="Te"/></td>
+                <td style="background-color: #ffec5c">53<br/>I<br/><input type="checkbox" name="elem" value="I"/></td>
+                <td style="background-color: #ffec5c">54<br/>Xe<br/><input type="checkbox" name="elem" value="Xe"/></td>
+            </tr>
+            <tr>
+                <td style="background-color: lightcoral">55<br/>Cs<br/><input type="checkbox" name="elem" value="Cs"/></td>
+                <td style="background-color: lightcoral">56<br/>Ba<br/><input type="checkbox" name="elem" value="Ba"/></td>
+                <td style="background-color: lightskyblue">71<br/>Lu<br/><input type="checkbox" name="elem" value="Lu"/></td>
+                <td style="background-color: lightskyblue">72<br/>Hf<br/><input type="checkbox" name="elem" value="Hf"/></td>
+                <td style="background-color: lightskyblue">73<br/>Ta<br/><input type="checkbox" name="elem" value="Ta"/></td>
+                <td style="background-color: lightskyblue">74<br/>W<br/><input type="checkbox" name="elem" value="W"/></td>
+                <td style="background-color: lightskyblue">75<br/>Re<br/><input type="checkbox" name="elem" value="Re"/></td>
+                <td style="background-color: lightskyblue">76<br/>Os<br/><input type="checkbox" name="elem" value="Os"/></td>
+                <td style="background-color: lightskyblue">77<br/>Ir<br/><input type="checkbox" name="elem" value="Ir"/></td>
+                <td style="background-color: lightskyblue">78<br/>Pt<br/><input type="checkbox" name="elem" value="Pt"/></td>
+                <td style="background-color: lightskyblue">79<br/>Au<br/><input type="checkbox" name="elem" value="Au"/></td>
+                <td style="background-color: lightskyblue">80<br/>Hg<br/><input type="checkbox" name="elem" value="Hg"/></td>
+                <td style="background-color: #ffec5c">81<br/>Tl<br/><input type="checkbox" name="elem" value="Tl"/></td>
+                <td style="background-color: #ffec5c">82<br/>Pb<br/><input type="checkbox" name="elem" value="Pb"/></td>
+                <td style="background-color: #ffec5c">83<br/>Bi<br/><input type="checkbox" name="elem" value="Bi"/></td>
+                <td style="background-color: #ffec5c">84<br/>Po<br/><input type="checkbox" name="elem" value="Po"/></td>
+                <td style="background-color: #ffec5c">85<br/>At<br/><input type="checkbox" name="elem" value="At"/></td>
+                <td style="background-color: #ffec5c">86<br/>Rn<br/><input type="checkbox" name="elem" value="Rn"/></td>
+            </tr>
+            <tr>
+                <td style="background-color: lightcoral">87<br/>Fr<br/><input type="checkbox" name="elem" value="Fr"/></td>
+                <td style="background-color: lightcoral">88<br/>Ra<br/><input type="checkbox" name="elem" value="Ra"/></td>
+                <td style="background-color: lightskyblue">103<br/>Lr<br/><input type="checkbox" name="elem" value="Lr"/></td>
+                <td style="background-color: lightskyblue">104<br/>Rf<br/><input type="checkbox" name="elem" value="Rf"/></td>
+                <td style="background-color: lightskyblue">105<br/>Db<br/><input type="checkbox" name="elem" value="Db"/></td>
+                <td style="background-color: lightskyblue">106<br/>Sg<br/><input type="checkbox" name="elem" value="Sg"/></td>
+                <td style="background-color: lightskyblue">107<br/>Bh<br/><input type="checkbox" name="elem" value="Bh"/></td>
+                <td style="background-color: lightskyblue">108<br/>Hs<br/><input type="checkbox" name="elem" value="Hs"/></td>
+                <td style="background-color: lightskyblue">109<br/>Mt<br/><input type="checkbox" name="elem" value="Mt"/></td>
+                <td style="background-color: lightskyblue">110<br/>Ds<br/><input type="checkbox" name="elem" value="Ds"/></td>
+                <td style="background-color: lightskyblue">111<br/>Rg<br/><input type="checkbox" name="elem" value="Rg"/></td>
+                <td style="background-color: lightskyblue">112<br/>Cn<br/><input type="checkbox" name="elem" value="Cn"/></td>
+                <td style="background-color: #ffec5c">113<br/>Nh<br/><input type="checkbox" name="elem" value="Nh"/></td>
+                <td style="background-color: #ffec5c">114<br/>Fl<br/><input type="checkbox" name="elem" value="Fl"/></td>
+                <td style="background-color: #ffec5c">115<br/>Mc<br/><input type="checkbox" name="elem" value="Mc"/></td>
+                <td style="background-color: #ffec5c">116<br/>Lv<br/><input type="checkbox" name="elem" value="Lv"/></td>
+                <td style="background-color: #ffec5c">117<br/>Ts<br/><input type="checkbox" name="elem" value="Ts"/></td>
+                <td style="background-color: #ffec5c">118<br/>Og<br/><input type="checkbox" name="elem" value="Og"/></td>
+            </tr>
+        </table>
+        <table class="table table-bordered" style="background-color: lightgreen;
+       border-color: white; border-width: 3px; text-align: center; font-weight: bold">
+            <tr>
+                <td>57<br/>La<br/><input type="checkbox" name="elem" value="La"/></td>
+                <td>58<br/>Ce<br/><input type="checkbox" name="elem" value="Ce"/></td>
+                <td>59<br/>Pr<br/><input type="checkbox" name="elem" value="Pr"/></td>
+                <td>60<br/>Nd<br/><input type="checkbox" name="elem" value="Nd"/></td>
+                <td>61<br/>Pm<br/><input type="checkbox" name="elem" value="Pm"/></td>
+                <td>62<br/>Sm<br/><input type="checkbox" name="elem" value="Sm"/></td>
+                <td>63<br/>Eu<br/><input type="checkbox" name="elem" value="Eu"/></td>
+                <td>64<br/>Gd<br/><input type="checkbox" name="elem" value="Gd"/></td>
+                <td>65<br/>Tb<br/><input type="checkbox" name="elem" value="Tb"/></td>
+                <td>66<br/>Dy<br/><input type="checkbox" name="elem" value="Dy"/></td>
+                <td>67<br/>Ho<br/><input type="checkbox" name="elem" value="Ho"/></td>
+                <td>68<br/>Er<br/><input type="checkbox" name="elem" value="Er"/></td>
+                <td>69<br/>Tm<br/><input type="checkbox" name="elem" value="Tm"/></td>
+                <td>70<br/>Yb<br/><input type="checkbox" name="elem" value="Yb"/></td>
+            </tr>
+            <tr>
+                <td>89<br/>Ac<br/><input type="checkbox" name="elem" value="Ac"/></td>
+                <td>90<br/>Th<br/><input type="checkbox" name="elem" value="Th"/></td>
+                <td>91<br/>Pa<br/><input type="checkbox" name="elem" value="Pa"/></td>
+                <td>92<br/>U<br/><input type="checkbox" name="elem" value="U"/></td>
+                <td>93<br/>Np<br/><input type="checkbox" name="elem" value="Np"/></td>
+                <td>94<br/>Pu<br/><input type="checkbox" name="elem" value="Pu"/></td>
+                <td>95<br/>Am<br/><input type="checkbox" name="elem" value="Am"/></td>
+                <td>96<br/>Cm<br/><input type="checkbox" name="elem" value="Cm"/></td>
+                <td>97<br/>Bk<br/><input type="checkbox" name="elem" value="Bk"/></td>
+                <td>98<br/>Cf<br/><input type="checkbox" name="elem" value="Cf"/></td>
+                <td>99<br/>Es<br/><input type="checkbox" name="elem" value="Es"/></td>
+                <td>100<br/>Fm<br/><input type="checkbox" name="elem" value="Fm"/></td>
+                <td>101<br/>Md<br/><input type="checkbox" name="elem" value="Md"/></td>
+                <td>102<br/>No<br/><input type="checkbox" name="elem" value="No"/></td>
+            </tr>
+        </table>
+    <input type="submit" id="sub" value="SUBMIT"
+           style="border-radius: 10px; background-color: white; 
+                           width: 100px; height: 30px; font-weight: bold; border-color: black; float: right"/>
+     <input type="button" value="REFRESH" onclick="history.go(0)"
+               style="border-radius: 10px; background-color: white; 
+                                           width: 100px; height: 30px; 
+                                           font-weight: bold;
+                                           border-color: black;">
+    }
+</div>

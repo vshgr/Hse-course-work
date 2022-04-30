@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Database}/{action=Get}/{id?}");
+    pattern: "{controller=Database}/{action=PeriodicTable}/{id?}");
 
 app.Run();

@@ -2,12 +2,7 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<div class="text-center" style="padding-bottom: 30px">
-    <h1 class="display-6" style="font-weight: bold">Welcome to database controller</h1>
-    <h5 style="padding-top: 10px">With this web application you can view the properties</h5>
-    <h5>of chemical elements distributed in different databases</h5>
-    <p style="color: gray">This application is connected to the BandGap and Crystal databases</p>
-</div>
+
 <div align="center">
     @using (Html.BeginForm("ShowData", "Database"))
     {
@@ -26,9 +21,14 @@
                 </th>
                 <th style="padding: 10px">
                     <input type="submit" id="submitId" value="SUBMIT"
-                           style="border-radius: 10px; background-color: greenyellow; 
+                           style="border-radius: 10px; background-color: white; text-align: center; 
                            width: 100px; height: 30px; font-weight: bold; border-color: black"/>
                 </th>
+                <th><input type="button" value="GO BACK" onclick="history.back()" 
+                                                               style="border-radius: 10px; background-color: lightgray; 
+                                                                                           width: 100px; height: 30px; 
+                                                                                           font-weight: bold;
+                                                                                           border-color: black;"></th>
             </tr>
         </table>
     }

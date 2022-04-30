@@ -1,9 +1,8 @@
-
 @using System.Data
 @using Microsoft.AspNetCore.Html
 @model dynamic
 @{
-    ViewData["Title"] = "Data Page";
+    ViewData["Title"] = "Data page";
 }
 <h2>Database from query</h2>
 @if (Model!= null)
@@ -40,3 +39,7 @@
         </tbody>
     </table>
 }
+<input type="button" value="GO BACK" onclick="history.back()" style="border-radius: 10px; background-color: lightgray; 
+                                                                                          width: 100px; height: 30px; 
+                                                                                          font-weight: bold;
+                                                                                          border-color: black">

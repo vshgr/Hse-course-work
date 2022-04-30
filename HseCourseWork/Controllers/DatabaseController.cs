@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Primitives;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers;
@@ -10,10 +11,82 @@ namespace WebApplication1.Controllers;
 public class DatabaseController : Controller
 {
     private readonly IConfiguration _config;
+    private List<SelectListItem> itemsList;
 
     public DatabaseController(IConfiguration config)
     {
         _config = config;
+    }
+
+    public IActionResult PeriodicTable()
+    {
+        return View("~/Views/Home/PeriodicTable.cshtml");
+    }
+
+    private bool checkContains(StringValues elems, SelectListItem item)
+    {
+        bool flag;
+        flag = true;
+        foreach (var elem in elems)
+        {
+            if (!item.Value.Contains(elem))
+            {
+                flag = false;
+                break;
+            }
+
+            string s = item.Text;
+            int index = s.IndexOf(elem);
+            while (index + elem.Length < item.Text.Length)
+            {
+                if (s[index + elem.Length].ToString().ToUpper() != s[index + elem.Length].ToString())
+                {
+                    flag = false;
+                    break;
+                }
+
+                if (s.Substring(index + elem.Length).Contains(elem))
+                {
+                    index = s.IndexOf(elem, index + elem.Length);
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        return flag;
+    }
+
+    public IActionResult Show()
+    {
+        DataTable uniqueData = GetUniqueDataTable();
+        SetListItems(uniqueData);
+
+        string welcomeString = "Success!";
+        var elems = Request.Form["elem"];
+
+        List<SelectListItem> list = new List<SelectListItem>();
+        foreach (var item in itemsList)
+        {
+            if (checkContains(elems, item))
+            {
+                list.Add(item);
+            }
+        }
+
+        if (list.Count == 0)
+        {
+            return ErrorView("No such substances!");
+        }
+
+        return Get(list);
+    }
+
+    public IActionResult ErrorView(string error)
+    {
+        return View("~/Views/Home/ErrorView.cshtml", error);
     }
 
     private DataTable GetUniqueDataTable()
@@ -33,7 +106,7 @@ public class DatabaseController : Controller
         return uniqueData;
     }
 
-    private List<SelectListItem> GetListItems(DataTable dataTable)
+    private void SetListItems(DataTable dataTable)
     {
         List<SelectListItem> list = new List<SelectListItem>();
         foreach (DataRow row in dataTable.Rows)
@@ -47,36 +120,51 @@ public class DatabaseController : Controller
             {
                 compound = row["Соединение"].ToString();
             }
+
             SelectListItem item = new SelectListItem(compound, compound);
             if (list.All(i => i.Text != item.Text))
             {
                 list.Add(item);
             }
         }
-        return list;
+
+        itemsList = list;
     }
-    public IActionResult Get()
+
+    public IActionResult Get(List<SelectListItem> list)
     {
-        DataTable uniqueData = GetUniqueDataTable();
-        List<SelectListItem> list = GetListItems(uniqueData);
         ViewBag.Compounds = list;
         return View("~/Views/Home/Get.cshtml");
     }
-    
+
+    private DataTable remove(DataTable dataTable)
+    {
+        for (int col = dataTable.Columns.Count - 1; col >= 0; col--)
+        {
+            bool removeColumn = true;
+            foreach (DataRow row in dataTable.Rows)
+            {
+                if (!row.IsNull(col) && row[col].ToString()!="")
+                {
+                    removeColumn = false;
+                    break;
+                }
+            }
+
+            if (removeColumn) dataTable.Columns.RemoveAt(col);
+        }
+
+        return dataTable;
+    }
+
     public IActionResult ShowData()
     {
         string compound = Request.Form["compound"].ToString();
         DataTable errorDataTable = new DataTable();
         errorDataTable.Columns.Add("Error");
-        if (compound == "")
-        {
-            DataRow row = errorDataTable.NewRow();
-            row["Error"] = "Empty request. Please select compound";
-            errorDataTable.Rows.Add(row);
-            return View("~/Views/Home/ShowData.cshtml", errorDataTable);
-        }
 
-        string query = _config.GetSection("CompQuery").Value + "'" + compound + "'";
+        string query = _config.GetSection("CompQuery").Value + "'" + compound + "' " +
+                       "OR table2.Соединение = " + "'" + compound + "'";
         string connectionString = _config.GetConnectionString("Connection");
         DataTable dataTable = new DataTable();
         try
@@ -89,6 +177,7 @@ public class DatabaseController : Controller
                 {
                     var uniqueRows = dataTable.AsEnumerable().Distinct(DataRowComparer.Default);
                     DataTable uniqueData = uniqueRows.CopyToDataTable();
+                    uniqueData = remove(uniqueData);
                     return View("~/Views/Home/ShowData.cshtml", uniqueData);
                 }
 

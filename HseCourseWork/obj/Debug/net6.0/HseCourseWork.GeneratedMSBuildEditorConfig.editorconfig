@@ -15,8 +15,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/alisa/RiderProjects/CourseWork/HseCourseWork
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/alisa/RiderProjects/CourseWork/HseCourseWork/Views/Home/ErrorView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9FcnJvclZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/alisa/RiderProjects/CourseWork/HseCourseWork/Views/Home/Get.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HZXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/alisa/RiderProjects/CourseWork/HseCourseWork/Views/Home/PeriodicTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9QZXJpb2RpY1RhYmxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/alisa/RiderProjects/CourseWork/HseCourseWork/Views/Home/ShowData.cshtml]
