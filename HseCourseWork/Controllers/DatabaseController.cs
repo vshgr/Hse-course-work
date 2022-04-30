@@ -47,13 +47,12 @@ public class DatabaseController : Controller
             {
                 compound = row["Соединение"].ToString();
             }
-            list.Add(new SelectListItem
+            SelectListItem item = new SelectListItem(compound, compound);
+            if (list.All(i => i.Text != item.Text))
             {
-                Text = compound,
-                Value = compound
-            });
+                list.Add(item);
+            }
         }
-
         return list;
     }
     public IActionResult Get()

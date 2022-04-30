@@ -7,7 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="02dff193-3fc7-4c14-bcea-db2171d8b735" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HseCourseWork/Controllers/DatabaseController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/HseCourseWork/Controllers/DatabaseController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +15,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/HseCourseWork/Controllers/DatabaseController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/alisa/RiderProjects/CourseWork/HseCourseWork/Controllers/DatabaseController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/HseCourseWork/Models/ErrorViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/HseCourseWork/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/HseCourseWork/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
@@ -84,8 +84,16 @@
       <updated>1651091480699</updated>
       <workItem from="1651091491669" duration="33687000" />
       <workItem from="1651170132655" duration="1072000" />
-      <workItem from="1651228867585" duration="1498000" />
+      <workItem from="1651228867585" duration="3399000" />
     </task>
+    <task id="LOCAL-00001" summary="update">
+      <created>1651236805609</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1651236805609</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,7 +101,20 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
