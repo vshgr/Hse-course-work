@@ -20,10 +20,12 @@ public class DatabaseController : Controller
 
     public IActionResult PeriodicTable()
     {
-        return View("~/Views/Home/PeriodicTable.cshtml");
+        var data = GetUniqueDataTable();
+        SetListItems(data);
+        return View("~/Views/Home/PeriodicTable.cshtml", itemsList);
     }
 
-    private bool checkContains(StringValues elems, SelectListItem item)
+    private bool CheckContains(StringValues elems, SelectListItem item)
     {
         bool flag;
         flag = true;
@@ -58,8 +60,8 @@ public class DatabaseController : Controller
 
         return flag;
     }
-
-    public IActionResult Show()
+    
+    public IActionResult Get()
     {
         DataTable uniqueData = GetUniqueDataTable();
         SetListItems(uniqueData);
@@ -70,7 +72,7 @@ public class DatabaseController : Controller
         List<SelectListItem> list = new List<SelectListItem>();
         foreach (var item in itemsList)
         {
-            if (checkContains(elems, item))
+            if (CheckContains(elems, item))
             {
                 list.Add(item);
             }
@@ -81,7 +83,7 @@ public class DatabaseController : Controller
             return ErrorView("No such substances!");
         }
 
-        return Get(list);
+        return View("~/Views/Home/Get.cshtml", list);
     }
 
     public IActionResult ErrorView(string error)
@@ -127,17 +129,10 @@ public class DatabaseController : Controller
                 list.Add(item);
             }
         }
-
         itemsList = list;
     }
 
-    public IActionResult Get(List<SelectListItem> list)
-    {
-        ViewBag.Compounds = list;
-        return View("~/Views/Home/Get.cshtml");
-    }
-
-    private DataTable remove(DataTable dataTable)
+    private DataTable RemoveColumns(DataTable dataTable)
     {
         for (int col = dataTable.Columns.Count - 1; col >= 0; col--)
         {
@@ -177,7 +172,7 @@ public class DatabaseController : Controller
                 {
                     var uniqueRows = dataTable.AsEnumerable().Distinct(DataRowComparer.Default);
                     DataTable uniqueData = uniqueRows.CopyToDataTable();
-                    uniqueData = remove(uniqueData);
+                    uniqueData = RemoveColumns(uniqueData);
                     return View("~/Views/Home/ShowData.cshtml", uniqueData);
                 }
 

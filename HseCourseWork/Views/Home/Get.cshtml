@@ -1,4 +1,5 @@
 @using Microsoft.AspNetCore.Html
+@model List<SelectListItem>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -12,10 +13,10 @@
                 <th style="padding: 10px"><b>SELECT SUBSTANCE:</b></th>
                 <th style="padding: 10px">
                     <select id="compound" name="compound" style="width: 250px; height: 30px;border-color: green">
-                        @for (int i = 0; i < ((IEnumerable<SelectListItem>)ViewBag.Compounds).Count(); i++)
+                        @for (int i = 0; i < Model.Count; i++)
                         {
-                            HtmlString html = new HtmlString(((List<SelectListItem>)ViewBag.Compounds)[i].Value.ToString());
-                            <option value=@(((List<SelectListItem>)ViewBag.Compounds)[i].Value.ToString()) class="compound">@html</option>
+                            HtmlString html = new HtmlString(Model[i].Value);
+                            <option value=@(Model[i].Value) class="compound">@html</option>
                         }
                     </select>
                 </th>
