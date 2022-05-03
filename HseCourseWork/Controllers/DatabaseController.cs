@@ -11,18 +11,19 @@ namespace WebApplication1.Controllers;
 public class DatabaseController : Controller
 {
     private readonly IConfiguration _config;
-    private List<SelectListItem> itemsList;
+    private List<SelectListItem> _itemsList;
 
     public DatabaseController(IConfiguration config)
     {
         _config = config;
+        _itemsList = new List<SelectListItem>();
     }
 
     public IActionResult PeriodicTable()
     {
         var data = GetUniqueDataTable();
         SetListItems(data);
-        return View("~/Views/Home/PeriodicTable.cshtml", itemsList);
+        return View("~/Views/Home/PeriodicTable.cshtml", _itemsList);
     }
 
     private bool CheckContains(StringValues elems, SelectListItem item)
@@ -66,11 +67,14 @@ public class DatabaseController : Controller
         DataTable uniqueData = GetUniqueDataTable();
         SetListItems(uniqueData);
 
-        string welcomeString = "Success!";
         var elems = Request.Form["elem"];
+        if (elems.Count == 0)
+        {
+            return  View("~/Views/Home/ErrorView.cshtml","No elements selected!");
+        }
 
         List<SelectListItem> list = new List<SelectListItem>();
-        foreach (var item in itemsList)
+        foreach (var item in _itemsList)
         {
             if (CheckContains(elems, item))
             {
@@ -80,7 +84,7 @@ public class DatabaseController : Controller
 
         if (list.Count == 0)
         {
-            return ErrorView("No such substances!");
+            return View("~/Views/Home/ErrorView.cshtml","No such substances!");
         }
 
         return View("~/Views/Home/Get.cshtml", list);
@@ -129,7 +133,7 @@ public class DatabaseController : Controller
                 list.Add(item);
             }
         }
-        itemsList = list;
+        _itemsList = list;
     }
 
     private DataTable RemoveColumns(DataTable dataTable)

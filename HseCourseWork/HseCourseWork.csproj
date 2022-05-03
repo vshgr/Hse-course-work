@@ -17,4 +17,8 @@
       <PackageReference Include="Microsoft.SqlServer.TransactSql.ScriptDom" Version="150.4897.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Views\Database" />
+    </ItemGroup>
+
 </Project>

@@ -4,7 +4,8 @@
 @{
     ViewData["Title"] = "Data page";
 }
-<h2>Database from query</h2>
+<h3 style="color: #0f5132; padding-bottom: 20px">Properties of 
+    @{ HtmlString htmlString = new HtmlString(Model.Rows[0][0].ToString());} @htmlString</h3>
 @if (Model!= null)
 {
     <table class="table table-bordered">
