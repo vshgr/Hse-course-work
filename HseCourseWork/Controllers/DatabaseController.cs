@@ -61,7 +61,7 @@ public class DatabaseController : Controller
 
         return flag;
     }
-    
+
     public IActionResult Get()
     {
         DataTable uniqueData = GetUniqueDataTable();
@@ -70,7 +70,11 @@ public class DatabaseController : Controller
         var elems = Request.Form["elem"];
         if (elems.Count == 0)
         {
-            return  View("~/Views/Home/ErrorView.cshtml","No elements selected!");
+            return View("~/Views/Home/ErrorView.cshtml", new UserErrorModel
+            {
+                ErrorMessage = "No elements selected!",
+                ErrorDescription = "Go back and select any elements"
+            });
         }
 
         List<SelectListItem> list = new List<SelectListItem>();
@@ -84,15 +88,14 @@ public class DatabaseController : Controller
 
         if (list.Count == 0)
         {
-            return View("~/Views/Home/ErrorView.cshtml","No such substances!");
+            return View("~/Views/Home/ErrorView.cshtml", new UserErrorModel
+            {
+                ErrorMessage = "No such substances!",
+                ErrorDescription = "Go back and select other elements"
+            });
         }
 
         return View("~/Views/Home/Get.cshtml", list);
-    }
-
-    public IActionResult ErrorView(string error)
-    {
-        return View("~/Views/Home/ErrorView.cshtml", error);
     }
 
     private DataTable GetUniqueDataTable()
@@ -133,6 +136,7 @@ public class DatabaseController : Controller
                 list.Add(item);
             }
         }
+
         _itemsList = list;
     }
 
@@ -143,7 +147,7 @@ public class DatabaseController : Controller
             bool removeColumn = true;
             foreach (DataRow row in dataTable.Rows)
             {
-                if (!row.IsNull(col) && row[col].ToString()!="")
+                if (!row.IsNull(col) && row[col].ToString() != "")
                 {
                     removeColumn = false;
                     break;
