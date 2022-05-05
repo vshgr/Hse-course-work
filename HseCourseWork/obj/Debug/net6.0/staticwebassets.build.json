@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KjM+xl7bnvqJ5MmNVJI5y8vdaHRwa4soTc622khf+Gg=",
+  "Hash": "CnTP2gMgEtuSjHS9xDYzJ8zTeOyHQ8KnHFOYQuPNp50=",
   "Source": "HseCourseWork",
   "BasePath": "_content/HseCourseWork",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/alisa/RiderProjects/CourseWork/HseCourseWork/wwwroot/table.svg",
+      "SourceId": "HseCourseWork",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/alisa/RiderProjects/CourseWork/HseCourseWork/wwwroot/",
+      "BasePath": "_content/HseCourseWork",
+      "RelativePath": "table.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/table.svg"
     }
   ]
 }
